@@ -1,0 +1,16 @@
+version: '3.7'
+networks:
+  default:
+    external: 
+      name: devops
+
+services:
+  jenkins:
+    restart: always
+    ports:
+      - 9090:8080
+    image: jenkins:0.3
+    container_name: jenkins-master
+    volumes:
+      - /volume1/docker-data/jenkins-master/:/var/jenkins_home
+    
